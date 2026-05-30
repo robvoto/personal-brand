@@ -304,6 +304,13 @@
     .card.compact p {
       font-size: 0.96rem;
     }
+    .industry-card .industry-clients {
+      margin-bottom: 0.55rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+    }
     .tool-feature {
       border-color: var(--line);
     }
@@ -311,7 +318,7 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      min-height: 132px;
+      min-height: 168px;
       padding: 0.95rem;
     }
     .applied-head {
@@ -598,3 +605,33 @@
         transition-duration: 0.01ms !important;
       }
     }
+
+
+.credential-institution {
+  display: inline-block;
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+.credential-institution:hover {
+  color: var(--accent);
+}
+.credential-logo--text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.9rem;
+  height: 3.9rem;
+  border-radius: 999px;
+  background: var(--chip-bg);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
