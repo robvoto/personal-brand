@@ -14,5 +14,5 @@ Static portfolio site. Read these before writing any code:
 - Do not hardcode and do not use fallbacks unless explicitly approved.
 - Deployment is GitHub Pages.
 - Public domain is robvoto.com.
-- No unused CSS.
-- No legacy links.
+- No unused code.
+- No legacy code or links.
