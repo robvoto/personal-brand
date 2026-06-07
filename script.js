@@ -2,6 +2,9 @@
 // Keep this lightweight. The page is mostly static; JS is only for small UX improvements.
 
 (function () {
+  const data = window.PERSONAL_BRAND_DATA;
+  if (!data) return;
+
   const links = document.querySelectorAll('a[href^="#"]');
 
   links.forEach((link) => {
@@ -43,8 +46,9 @@
     sections.forEach((section) => observer.observe(section));
   }
 
-  const caseStudies = window.PERSONAL_BRAND_DATA?.caseStudies || [];
-  if (!caseStudies.length) return;
+  const caseStudies = data.caseStudies;
+  const drawerCopy = data.caseDrawer;
+  const emptyText = drawerCopy.emptyText;
 
   const createCaseDrawer = () => {
     const drawer = document.createElement('div');
@@ -53,41 +57,41 @@
     drawer.hidden = true;
     drawer.setAttribute('aria-hidden', 'true');
     drawer.innerHTML = `
-      <button class="case-drawer-backdrop" type="button" data-case-close aria-label="Close case file"></button>
+      <button class="case-drawer-backdrop" type="button" data-case-close aria-label="${drawerCopy.closeLabel}"></button>
       <aside class="case-drawer-panel" role="dialog" aria-modal="true" aria-labelledby="case-drawer-heading">
         <div class="case-drawer-top">
           <div>
-            <div class="case-drawer-kicker">Case file</div>
-            <h3 id="case-drawer-heading">Case details</h3>
+            <div class="case-drawer-kicker">${drawerCopy.kicker}</div>
+            <h3 id="case-drawer-heading">${drawerCopy.heading}</h3>
           </div>
-          <button class="case-drawer-close" type="button" data-case-close aria-label="Close case file">×</button>
+          <button class="case-drawer-close" type="button" data-case-close aria-label="${drawerCopy.closeLabel}">×</button>
         </div>
         <div class="case-drawer-meta">
           <div class="case-drawer-field">
-            <span>Company</span>
+            <span>${drawerCopy.company}</span>
             <strong data-case-company></strong>
           </div>
           <div class="case-drawer-field">
-            <span>Title</span>
+            <span>${drawerCopy.title}</span>
             <strong data-case-title></strong>
           </div>
         </div>
         <div class="case-drawer-body">
           <div class="case-drawer-field">
-            <span>Situation</span>
-            <p data-case-situation>STAR content to be added.</p>
+            <span>${drawerCopy.situation}</span>
+            <p data-case-situation>${emptyText}</p>
           </div>
           <div class="case-drawer-field">
-            <span>Task</span>
-            <p data-case-task>STAR content to be added.</p>
+            <span>${drawerCopy.task}</span>
+            <p data-case-task>${emptyText}</p>
           </div>
           <div class="case-drawer-field">
-            <span>Action</span>
-            <p data-case-action>STAR content to be added.</p>
+            <span>${drawerCopy.action}</span>
+            <p data-case-action>${emptyText}</p>
           </div>
           <div class="case-drawer-field">
-            <span>Result</span>
-            <p data-case-result>STAR content to be added.</p>
+            <span>${drawerCopy.result}</span>
+            <p data-case-result>${emptyText}</p>
           </div>
         </div>
       </aside>
@@ -113,10 +117,10 @@
 
     caseFields.company.textContent = caseStudy.company;
     caseFields.title.textContent = caseStudy.title;
-    caseFields.situation.textContent = caseStudy.caseFile?.situation || 'STAR content to be added.';
-    caseFields.task.textContent = caseStudy.caseFile?.task || 'STAR content to be added.';
-    caseFields.action.textContent = caseStudy.caseFile?.action || 'STAR content to be added.';
-    caseFields.result.textContent = caseStudy.caseFile?.result || 'STAR content to be added.';
+    caseFields.situation.textContent = caseStudy.caseFile.situation;
+    caseFields.task.textContent = caseStudy.caseFile.task;
+    caseFields.action.textContent = caseStudy.caseFile.action;
+    caseFields.result.textContent = caseStudy.caseFile.result;
 
     caseDrawer.hidden = false;
     caseDrawer.setAttribute('aria-hidden', 'false');

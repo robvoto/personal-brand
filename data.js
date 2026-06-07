@@ -1,4 +1,68 @@
+const KNOWME_URL = 'https://knowme.robvoto.com/';
+
 window.PERSONAL_BRAND_DATA = {
+  site: {
+    title: 'Rob Voto | Technical Business Analyst + AI',
+    description:
+      'Rob Voto - Technical Business Analyst in Sydney, building AI tools and translating complex business, data, integration and workflow problems into buildable solutions.',
+    themeColor: '#0b0d12',
+  },
+  copy: {
+    skipLink: 'Skip to content',
+    brand: {
+      first: 'Rob',
+      last: 'Voto',
+    },
+    navigation: [
+      { label: 'Capabilities', href: '#capabilities' },
+      { label: 'Toolkit', href: '#skills' },
+      { label: 'Case studies', href: '#experience' },
+      { label: 'Applied AI', href: '#work' },
+      { label: 'Education', href: '#credentials' },
+      { label: 'Contact', href: '#contact' },
+    ],
+    hero: {
+      eyebrow: 'BUSINESS ANALYSIS · TECHNICAL DELIVERY · AI',
+      title: 'Rob Voto',
+      copy:
+        'I connect high-level business intent with system detail: rules, workflows, data flows, APIs, acceptance criteria and delivery artefacts. I also build AI tools, so the technical side is practical, not theoretical.',
+      chip: '20+ years enterprise delivery',
+      ctaLabel: 'Ask AI About Rob',
+      ctaHref: KNOWME_URL,
+    },
+    sections: {
+      capabilities: 'Capabilities',
+      toolkit: 'Toolkit',
+      caseStudies: 'Case studies',
+      appliedAi: 'Applied AI',
+      industries: 'Industries',
+      education: 'Education',
+      contact: 'Contact',
+    },
+    contact: {
+      emailLabel: 'Email',
+      email: 'rob.voto.au@gmail.com',
+      linkedinLabel: 'LinkedIn',
+      linkedinDisplay: 'linkedin.com/in/robertohernanvoto',
+      linkedinHref: 'https://linkedin.com/in/robertohernanvoto',
+      companyLabel: 'My company',
+      companyName: 'VotoRuiz IT Pty Ltd',
+      acn: 'ACN 646 920 756',
+    },
+    footer: {
+      left: 'Rob Voto - Sydney, Australia',
+      right: 'Technical BA + AI tools',
+    },
+  },
+  heroVideo: {
+    ariaLabel: 'Watch 2-minute intro',
+    title: '2-minute introduction',
+    description: 'Quick overview of how I work, what I build, and where I add value.',
+    ctaLabel: 'Watch video',
+    href: 'https://drive.google.com/file/d/1OI1eU8K2CWpuZAVJ9ydqSrNtVD90ZgR5/view?usp=sharing',
+    thumbSrc: 'video-thumb.jpg',
+    thumbAlt: '2-minute introduction video thumbnail',
+  },
   capabilities: [
     {
       title: 'Technical analysis',
@@ -196,7 +260,7 @@ window.PERSONAL_BRAND_DATA = {
       links: [
         {
           label: 'Website',
-          href: 'https://knowme-reeo.onrender.com/',
+          href: KNOWME_URL,
         },
       ],
     },
@@ -260,4 +324,17 @@ window.PERSONAL_BRAND_DATA = {
     { title: 'OutSystems Associate Reactive Developer' },
     { title: 'Guidewire Policy and Claim Centre' },
   ],
+  caseDrawer: {
+    kicker: 'Case file',
+    heading: 'Case details',
+    company: 'Company',
+    title: 'Title',
+    situation: 'Situation',
+    task: 'Task',
+    action: 'Action',
+    result: 'Result',
+    closeLabel: 'Close case file',
+    emptyText: 'STAR content to be added.',
+    triggerLabel: 'Case file →',
+  },
 };

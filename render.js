@@ -17,16 +17,47 @@
     links
       .map(
         (link) =>
-          `<a class="chip-link" href="${escapeHtml(link.href)}" target="_blank" rel="noopener">${escapeHtml(link.label)}</a>`
+          `<a class="chip-link" href="${escapeHtml(link.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)}</a>`
       )
       .join('');
 
+  const renderBrand = (brand) => `<span>${escapeHtml(brand.first)} <span>${escapeHtml(brand.last)}</span></span>`;
+  const renderNav = (links) => links.map((link) => `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`).join('');
+  const renderHeroCopy = (hero) => `
+    <div>
+      <div class="eyebrow">${escapeHtml(hero.eyebrow)}</div>
+      <h1>${escapeHtml(hero.title)}</h1>
+      <p class="hero-copy">${escapeHtml(hero.copy)}</p>
+      <div class="hero-chip-row">
+        <span class="hero-chip">${escapeHtml(hero.chip)}</span>
+      </div>
+      <div class="hero-actions">
+        <a class="button primary" href="${escapeHtml(hero.ctaHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hero.ctaLabel)}</a>
+      </div>
+    </div>
+  `;
+  const renderSectionHead = (title) => `<h2>${escapeHtml(title)}</h2>`;
+  const renderHeroVideoCard = (video) => `
+    <div class="hero-video-preview">
+      <div class="hero-video-thumb" aria-hidden="true">
+        <img src="${escapeHtml(video.thumbSrc)}" alt="${escapeHtml(video.thumbAlt)}" class="hero-video-thumb-img">
+        <div class="hero-video-play-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <path d="M8 5.5l11 6.5-11 6.5V5.5z" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+      <h2>${escapeHtml(video.title)}</h2>
+      <p class="hero-video-copy">${escapeHtml(video.description)}</p>
+      <div class="hero-video-actions">
+        <a class="button primary" href="${escapeHtml(video.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(video.ctaLabel)}</a>
+      </div>
+    </div>
+  `;
+
   const renderCapabilities = (cards) =>
     cards
-      .map(
-        (card) =>
-          `<article class="card compact"><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.body)}</p></article>`
-      )
+      .map((card) => `<article class="card compact"><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.body)}</p></article>`)
       .join('');
 
   const renderToolkit = (cards) =>
@@ -45,17 +76,17 @@
             <span class="case-study-company">${escapeHtml(card.company)}</span>
             <h3>${escapeHtml(card.title)}</h3>
             <p class="case-study-summary">${escapeHtml(card.summary)}</p>
-              <div class="pill-cloud case-study-tags">${renderTags(card.tags)}</div>
-              <div class="case-study-actions">
-                <button
-                  class="chip-link case-file-button"
-                  type="button"
+            <div class="pill-cloud case-study-tags">${renderTags(card.tags)}</div>
+            <div class="case-study-actions">
+              <button
+                class="chip-link case-file-button"
+                type="button"
                 data-case-study-index="${index}"
                 aria-haspopup="dialog"
                 aria-controls="case-drawer"
-              >Case file →</button>
-              </div>
-            </article>
+              >${escapeHtml(data.caseDrawer.triggerLabel)}</button>
+            </div>
+          </article>
         `
       )
       .join('');
@@ -97,12 +128,7 @@
       .join('');
 
   const renderIndustries = (cards) =>
-    cards
-      .map(
-        (card) =>
-          `<article class="card compact industry-card industry-title-only"><h3>${escapeHtml(card.title)}</h3></article>`
-      )
-      .join('');
+    cards.map((card) => `<article class="card compact industry-card industry-title-only"><h3>${escapeHtml(card.title)}</h3></article>`).join('');
 
   const renderEducationTop = (cards) =>
     cards
@@ -112,7 +138,7 @@
             <article class="card compact">
               <h3>${escapeHtml(card.title)}</h3>
               <div class="credential-badges" aria-label="Degree institution">
-                <a class="chip-link" href="${escapeHtml(card.badge.href)}" target="_blank" rel="noopener">${escapeHtml(card.badge.label)}</a>
+                <a class="chip-link" href="${escapeHtml(card.badge.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(card.badge.label)}</a>
               </div>
             </article>
           `;
@@ -137,14 +163,60 @@
       })
       .join('');
 
-  const renderEducationBottom = (cards) =>
-    cards.map((card) => `<article class="card compact"><h3>${escapeHtml(card.title)}</h3></article>`).join('');
+  const renderEducationBottom = (cards) => cards.map((card) => `<article class="card compact"><h3>${escapeHtml(card.title)}</h3></article>`).join('');
+
+  const renderContact = (contact) => `
+    <div class="contact-panel">
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:${escapeHtml(contact.email)}">
+          <strong>${escapeHtml(contact.emailLabel)}</strong>
+          <span>${escapeHtml(contact.email)}</span>
+        </a>
+        <a class="contact-link" href="${escapeHtml(contact.linkedinHref)}" target="_blank" rel="noopener noreferrer">
+          <strong>${escapeHtml(contact.linkedinLabel)}</strong>
+          <span>${escapeHtml(contact.linkedinDisplay)}</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-stack">
+      <div class="contact-panel company-card">
+        <img class="contact-brand" src="votoruizit.png" alt="VotoRuizIT">
+        <div class="company-copy">
+          <span class="company-label">${escapeHtml(contact.companyLabel)}</span>
+          <strong>${escapeHtml(contact.companyName)}</strong>
+          <span>${escapeHtml(contact.acn)}</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const renderFooter = (footer) => `
+    <div>${escapeHtml(footer.left)}</div>
+    <div>${escapeHtml(footer.right)}</div>
+  `;
 
   const renderSection = (selector, html) => {
     const target = document.querySelector(selector);
     if (target) target.innerHTML = html;
   };
 
+  document.title = data.site.title;
+  const descriptionMeta = document.querySelector('meta[name="description"]');
+  if (descriptionMeta) descriptionMeta.setAttribute('content', data.site.description);
+
+  renderSection('[data-render="skip-link"]', escapeHtml(data.copy.skipLink));
+  renderSection('[data-render="brand"]', renderBrand(data.copy.brand));
+  renderSection('[data-render="nav"]', renderNav(data.copy.navigation));
+  renderSection('[data-render="hero-copy"]', renderHeroCopy(data.copy.hero));
+  const heroVideoCard = document.querySelector('[data-render="hero-video-label"]');
+  if (heroVideoCard) heroVideoCard.setAttribute('aria-label', data.heroVideo.ariaLabel);
+  renderSection('[data-render="section-capabilities"]', renderSectionHead(data.copy.sections.capabilities));
+  renderSection('[data-render="section-toolkit"]', renderSectionHead(data.copy.sections.toolkit));
+  renderSection('[data-render="section-case-studies"]', renderSectionHead(data.copy.sections.caseStudies));
+  renderSection('[data-render="section-applied-ai"]', renderSectionHead(data.copy.sections.appliedAi));
+  renderSection('[data-render="section-industries"]', renderSectionHead(data.copy.sections.industries));
+  renderSection('[data-render="section-education"]', renderSectionHead(data.copy.sections.education));
+  renderSection('[data-render="section-contact"]', renderSectionHead(data.copy.sections.contact));
   renderSection('[data-render="capabilities"]', renderCapabilities(data.capabilities));
   renderSection('[data-render="toolkit"]', renderToolkit(data.toolkit));
   renderSection('[data-render="case-studies"]', renderCaseStudies(data.caseStudies));
@@ -152,4 +224,7 @@
   renderSection('[data-render="industries"]', renderIndustries(data.industries));
   renderSection('[data-render="education-top"]', renderEducationTop(data.educationTop));
   renderSection('[data-render="education-bottom"]', renderEducationBottom(data.educationBottom));
+  renderSection('[data-render="contact"]', renderContact(data.copy.contact));
+  renderSection('[data-render="footer"]', renderFooter(data.copy.footer));
+  renderSection('[data-render="hero-video"]', renderHeroVideoCard(data.heroVideo));
 })();

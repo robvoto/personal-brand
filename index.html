@@ -3,146 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Rob Voto - Technical Business Analyst in Sydney, building AI tools and translating complex business, data, integration and workflow problems into buildable solutions.">
+  <meta name="description" content="">
   <meta name="theme-color" content="#0b0d12">
-  <title>Rob Voto | Technical Business Analyst + AI</title>
+  <title></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to content</a>
+  <a class="skip-link" href="#content" data-render="skip-link"></a>
 
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="brand" href="#home">
-        <span>Rob <span>Voto</span></span>
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#capabilities">Capabilities</a>
-        <a href="#skills">Toolkit</a>
-        <a href="#experience">Case studies</a>
-        <a href="#work">Applied AI</a>
-        <a href="#credentials">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <a class="brand" href="#home" data-render="brand"></a>
+      <nav class="nav" aria-label="Primary" data-render="nav"></nav>
     </div>
   </header>
 
   <main id="content" class="page">
     <section class="hero" id="home">
       <div class="hero-grid">
-        <div>
-          <div class="eyebrow">BUSINESS ANALYSIS · TECHNICAL DELIVERY · AI</div>
-          <h1>Rob Voto</h1>
-          <p class="hero-copy">
-            I connect high-level business intent with system detail: rules, workflows, data flows, APIs, acceptance criteria and delivery artefacts. I also build AI tools, so the technical side is practical, not theoretical.
-          </p>
-          <div class="hero-chip-row">
-            <span class="hero-chip">20+ years enterprise delivery</span>
-          </div>
-          <div class="hero-actions">
-            <a class="button primary" href="https://knowme-reeo.onrender.com/" target="_blank" rel="noopener">Ask AI About Rob</a>
-          </div>
-        </div>
+        <div data-render="hero-copy"></div>
 
-        <aside class="hero-card" aria-label="Watch 2-minute intro">
-          <div class="hero-video">
-            <h2>2-min introduction</h2>
-            <div class="hero-video-frame">
-              <iframe
-                src="https://drive.google.com/file/d/1OI1eU8K2CWpuZAVJ9ydqSrNtVD90ZgR5/preview"
-                title="Rob Voto 2-minute intro video"
-                loading="lazy"
-                allow="encrypted-media; picture-in-picture"
-                referrerpolicy="no-referrer"
-                allowfullscreen></iframe>
-            </div>
-            <p class="hero-video-copy">Quick overview of how I work, what I build, and where I add value.</p>
-          </div>
+        <aside class="hero-card" aria-label="" data-render="hero-video-label">
+          <div class="hero-video" data-render="hero-video"></div>
         </aside>
       </div>
     </section>
 
     <section class="section" id="capabilities">
-      <div class="section-head">
-        <h2>Capabilities</h2>
-      </div>
+      <div class="section-head" data-render="section-capabilities"></div>
       <div class="card-grid three" data-render="capabilities"></div>
     </section>
 
     <section class="section" id="skills">
-      <div class="section-head">
-        <h2>Toolkit</h2>
-      </div>
+      <div class="section-head" data-render="section-toolkit"></div>
       <div class="card-grid four" data-render="toolkit"></div>
     </section>
 
     <section class="section" id="experience">
-      <div class="section-head">
-        <h2>Case studies</h2>
-      </div>
+      <div class="section-head" data-render="section-case-studies"></div>
       <div class="card-grid four" data-render="case-studies"></div>
     </section>
 
     <section class="section" id="work">
-      <div class="section-head">
-        <h2>Applied AI</h2>
-      </div>
+      <div class="section-head" data-render="section-applied-ai"></div>
       <div class="card-grid applied-grid" data-render="applied-ai"></div>
     </section>
 
     <section class="section" id="industries">
-      <div class="section-head">
-        <h2>Industries</h2>
-      </div>
+      <div class="section-head" data-render="section-industries"></div>
       <div class="card-grid four" data-render="industries"></div>
     </section>
 
     <section class="section" id="credentials">
-      <div class="section-head">
-        <h2>Education</h2>
-      </div>
+      <div class="section-head" data-render="section-education"></div>
       <div class="card-grid three" data-render="education-top"></div>
       <div class="card-grid three credential-grid" data-render="education-bottom"></div>
     </section>
 
     <section class="section" id="contact">
-      <div class="section-head">
-        <h2>Contact</h2>
-      </div>
-      <div class="contact">
-        <div class="contact-panel">
-          <div class="contact-links">
-            <a class="contact-link" href="mailto:rob.voto.au@gmail.com">
-              <strong>Email</strong>
-              <span>rob.voto.au@gmail.com</span>
-            </a>
-            <a class="contact-link" href="https://linkedin.com/in/robertohernanvoto" target="_blank" rel="noopener">
-              <strong>LinkedIn</strong>
-              <span>linkedin.com/in/robertohernanvoto</span>
-            </a>
-          </div>
-        </div>
-        <div class="contact-stack">
-          <div class="contact-panel company-card">
-            <img class="contact-brand" src="votoruizit.png" alt="VotoRuizIT">
-            <div class="company-copy">
-              <span class="company-label">My company</span>
-              <strong>VotoRuiz IT Pty Ltd</strong>
-              <span>ACN 646 920 756</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="section-head" data-render="section-contact"></div>
+      <div class="contact" data-render="contact"></div>
     </section>
   </main>
 
-  <footer>
-    <div>Rob Voto - Sydney, Australia</div>
-    <div>Technical BA + AI tools</div>
-  </footer>
+  <footer data-render="footer"></footer>
   <script src="data.js" defer></script>
   <script src="render.js" defer></script>
   <script src="script.js" defer></script>
