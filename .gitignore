@@ -43,6 +43,12 @@ htmlcov/
 .coverage
 .coverage.*
 .cache
+.playwright/
+.playwright-test/
+.nyc_output/
+node_modules/
+playwright-report/
+test-results/
 nosetests.xml
 coverage.xml
 *.cover
