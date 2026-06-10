@@ -1,4 +1,5 @@
 const KNOWME_URL = 'https://knowme.robvoto.com/';
+const JOB_HUNTER_URL = 'https://jobhunter.robvoto.com';
 
 window.PERSONAL_BRAND_DATA = {
   site: {
@@ -250,7 +251,11 @@ window.PERSONAL_BRAND_DATA = {
         {
           label: 'Demo',
           href: 'https://drive.google.com/file/d/1X5fwEAcQ3bDygtQ6dC_Wuu5c_a4gxJQQ/view?usp=sharing',
-        },      
+        },
+        {
+          label: 'App',
+          href: JOB_HUNTER_URL,
+        },
       ],
     },
     {
@@ -259,7 +264,7 @@ window.PERSONAL_BRAND_DATA = {
       body: 'Live LLM assistant for asking evidence-based questions about my experience.',
       links: [
         {
-          label: 'Website',
+          label: 'App',
           href: KNOWME_URL,
         },
       ],

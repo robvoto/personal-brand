@@ -29,6 +29,21 @@
       --text-dark: #f8f4ea;
       --warm: #f2e8d5;
       --job-accent: #ff7a00;
+      --chip-min-height: 2.5rem;
+      --chip-padding-y: 0.6rem;
+      --chip-padding-x: 0.9rem;
+      --chip-font-size: 0.72rem;
+      --chip-font-weight: 500;
+      --chip-letter-spacing: 0.12em;
+      --action-min-height: 48px;
+      --action-padding-y: 0.8rem;
+      --action-padding-x: 1.2rem;
+      --action-font-size: 0.74rem;
+      --action-font-weight: 500;
+      --action-letter-spacing: 0.08em;
+      --hero-chip-font-size: 0.72rem;
+      --hero-chip-font-weight: 500;
+      --hero-chip-letter-spacing: 0.08em;
     }
 
     body {
@@ -206,9 +221,9 @@
       background: rgba(255, 255, 255, 0.06);
       color: var(--text-dark);
       font-family: var(--mono);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      font-size: var(--hero-chip-font-size);
+      font-weight: var(--hero-chip-font-weight);
+      letter-spacing: var(--hero-chip-letter-spacing);
       white-space: nowrap;
     }
     .hero-actions {
@@ -222,22 +237,23 @@
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
-      min-height: 48px;
-      padding: 0.8rem 1.2rem;
+      min-height: var(--action-min-height);
+      padding: var(--action-padding-y) var(--action-padding-x);
       border-radius: 999px;
       text-decoration: none;
       font-family: var(--mono);
-      font-size: 0.74rem;
-      letter-spacing: 0.08em;
+      font-size: var(--action-font-size);
+      font-weight: var(--action-font-weight);
+      letter-spacing: var(--action-letter-spacing);
       text-transform: uppercase;
       border: 1px solid transparent;
+      line-height: 1;
       transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
     }
     .button:hover { transform: translateY(-1px); }
     .button.primary {
       background: linear-gradient(135deg, var(--accent), #3b6d5c);
       color: var(--text-dark);
-      font-weight: 700;
       box-shadow: 0 12px 24px rgba(47, 95, 79, 0.2);
     }
     .button.secondary {
@@ -440,14 +456,10 @@
     .applied-copy {
       display: flex;
       flex-direction: column;
-      flex: 1;
       gap: 0.55rem;
     }
-    .applied-grid .card > p {
-      flex: 1;
-    }
     .applied-copy .credential-badges {
-      margin-top: auto;
+      margin-top: 0.1rem;
     }
     .tag {
       padding: 0.4rem 0.65rem;
@@ -524,17 +536,18 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 2.5rem;
-      padding: 0.6rem 0.9rem;
+      min-height: var(--chip-min-height);
+      padding: var(--chip-padding-y) var(--chip-padding-x);
       border-radius: 999px;
       background: linear-gradient(180deg, var(--badge-bg), rgba(255, 255, 255, 0.02));
       border: 1px solid var(--badge-border);
       color: var(--text);
       font-family: var(--mono);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-size: var(--chip-font-size);
+      font-weight: var(--chip-font-weight);
+      letter-spacing: var(--chip-letter-spacing);
       text-transform: uppercase;
+      line-height: 1;
       white-space: nowrap;
       box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
     }
@@ -542,17 +555,18 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 2.5rem;
-      padding: 0.6rem 0.9rem;
+      min-height: var(--chip-min-height);
+      padding: var(--chip-padding-y) var(--chip-padding-x);
       border-radius: 999px;
       background: linear-gradient(135deg, var(--accent), #3b6d5c);
       border: 1px solid rgba(47, 95, 79, 0.25);
       color: var(--text-dark);
       font-family: var(--mono);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-size: var(--chip-font-size);
+      font-weight: var(--chip-font-weight);
+      letter-spacing: var(--chip-letter-spacing);
       text-transform: uppercase;
+      line-height: 1;
       white-space: nowrap;
       box-shadow: 0 12px 24px rgba(47, 95, 79, 0.16);
       text-decoration: none;
@@ -562,9 +576,9 @@
       border: 1px solid rgba(47, 95, 79, 0.25);
       cursor: pointer;
       font: inherit;
-      min-height: 2.15rem;
-      padding: 0.45rem 0.7rem;
-      font-size: 0.68rem;
+      min-height: var(--chip-min-height);
+      padding: var(--chip-padding-y) var(--chip-padding-x);
+      font-size: var(--chip-font-size);
     }
     .chip-link:hover {
       filter: brightness(1.03);
