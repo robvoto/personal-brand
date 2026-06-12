@@ -42,7 +42,7 @@ window.PERSONAL_BRAND_DATA = {
     },
     contact: {
       emailLabel: 'Email',
-      email: 'rob.voto.au@gmail.com',
+      email: 'contact@robvoto.com',
       linkedinLabel: 'LinkedIn',
       linkedinDisplay: 'linkedin.com/in/robertohernanvoto',
       linkedinHref: 'https://linkedin.com/in/robertohernanvoto',
