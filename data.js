@@ -46,6 +46,7 @@ window.PERSONAL_BRAND_DATA = {
       caseStudies: 'Case studies',
       appliedAi: 'Applied AI',
       baWorkSamples: 'BA Work Samples',
+      baWorkSamplesCta: 'View all work samples',
       industries: 'Industries',
       education: 'Education',
       contact: 'Contact',
@@ -352,6 +353,7 @@ window.PERSONAL_BRAND_DATA = {
     detailNavigation: [
       { label: 'Home', href: '../index.html#home' },
       { label: 'BA Work Samples', href: '../work-samples.html' },
+      { label: 'Applied AI', href: '../index.html#work' },
     ],
     overview: {
       title: 'BA Work Samples | Rob Voto',

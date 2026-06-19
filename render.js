@@ -37,6 +37,12 @@
     </div>
   `;
   const renderSectionHead = (title) => `<h2>${escapeHtml(title)}</h2>`;
+  const renderSectionHeadWithLink = (title, link) => `
+    <div class="section-head-row">
+      <h2>${escapeHtml(title)}</h2>
+      <a class="chip-link action-pill" href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>
+    </div>
+  `;
   const renderHeroVideoCard = (video) => `
     <div class="hero-video-preview">
       <div class="hero-video-thumb" aria-hidden="true">
@@ -333,7 +339,13 @@
   renderSection('[data-render="section-toolkit"]', renderSectionHead(data.copy.sections.toolkit));
   renderSection('[data-render="section-case-studies"]', renderSectionHead(data.copy.sections.caseStudies));
   renderSection('[data-render="section-applied-ai"]', renderSectionHead(data.copy.sections.appliedAi));
-  renderSection('[data-render="section-ba-work-samples"]', renderSectionHead(data.copy.sections.baWorkSamples));
+  renderSection(
+    '[data-render="section-ba-work-samples"]',
+    renderSectionHeadWithLink(data.copy.sections.baWorkSamples, {
+      href: 'work-samples.html',
+      label: data.copy.sections.baWorkSamplesCta,
+    })
+  );
   renderSection('[data-render="section-industries"]', renderSectionHead(data.copy.sections.industries));
   renderSection('[data-render="section-education"]', renderSectionHead(data.copy.sections.education));
   renderSection('[data-render="section-contact"]', renderSectionHead(data.copy.sections.contact));

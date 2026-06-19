@@ -337,6 +337,13 @@
     .section-head {
       margin-bottom: 1.15rem;
     }
+    .section-head-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
     h2 {
       font-size: clamp(1.55rem, 3vw, 2.25rem);
     }

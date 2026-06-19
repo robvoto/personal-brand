@@ -59,6 +59,7 @@ test('homepage shows BA work sample actions', async ({ page }) => {
   await page.goto(fileUrl(indexHtmlPath));
 
   await expect(page.getByRole('heading', { name: 'BA Work Samples' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'View all work samples' })).toHaveAttribute('href', 'work-samples.html');
 
   const jobsCard = page.locator('article').filter({ has: page.getByRole('heading', { name: 'Job Intelligence Tool' }) });
   await assertActionLabels(jobsCard, ['Demo', 'App', 'Case study', 'Decision flows']);
@@ -101,6 +102,7 @@ test('work sample detail pages render the required structure', async ({ page }) 
   await expect(page.getByText('Job Intelligence Tool')).toBeVisible();
   await expect(page.getByText('KnowMe')).toBeVisible();
   await expect(page.getByText('AI Coding Orchestrator')).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Back to BA Work Samples' })).toHaveAttribute('href', '../work-samples.html');
 });
 
 for (const detailPage of detailPages) {
@@ -110,6 +112,7 @@ for (const detailPage of detailPages) {
     await expect(page).toHaveTitle(detailPage.title);
     await expect(page.getByRole('heading', { name: detailPage.heading })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Related project links' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Back to BA Work Samples' })).toHaveAttribute('href', '../work-samples.html');
 
     for (const snippet of detailPage.snippets) {
       await expect(page.getByText(snippet, { exact: false })).toBeVisible();
