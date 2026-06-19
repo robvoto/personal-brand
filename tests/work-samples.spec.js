@@ -9,21 +9,41 @@ const detailPages = [
     file: 'bpmn-process-maps.html',
     title: 'BPMN & process maps | Rob Voto',
     heading: 'BPMN & process maps',
+    snippets: [
+      'Job Hunter scoring process flow',
+      'Scraper captures the job record.',
+      'Clear process maps reduce rework',
+    ],
   },
   {
     file: 'business-rules-decision-logic.html',
     title: 'Business rules & decision logic | Rob Voto',
     heading: 'Business rules & decision logic',
+    snippets: [
+      'Job Hunter separates hidden filtering from inspectable scoring',
+      'Job Hunter rules spine',
+      'keeps hidden penalties out of the system',
+    ],
   },
   {
     file: 'acceptance-criteria-delivery.html',
     title: 'Acceptance criteria & delivery stories | Rob Voto',
     heading: 'Acceptance criteria & delivery stories',
+    snippets: [
+      'KnowMe has a public UI and an admin surface',
+      'Story to release path',
+      'same definition of done',
+    ],
   },
   {
     file: 'ai-product-decision-flows.html',
     title: 'AI product decision flows | Rob Voto',
     heading: 'AI product decision flows',
+    snippets: [
+      'AI Tech Lead is a local orchestrator',
+      'Orchestrator decision flow',
+      'controlled coding-agent runner',
+    ],
   },
 ];
 
@@ -58,6 +78,10 @@ test('work-samples overview page links to detail pages', async ({ page }) => {
 
   await expect(page).toHaveTitle('BA Work Samples | Rob Voto');
   await expect(page.getByRole('heading', { name: 'BA Work Samples | Rob Voto' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'BPMN & process maps' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Business rules & decision logic' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Acceptance criteria & delivery stories' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'AI product decision flows' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Open BPMN & process maps' })).toHaveAttribute(
     'href',
     'work-samples/bpmn-process-maps.html'
@@ -86,5 +110,9 @@ for (const detailPage of detailPages) {
     await expect(page).toHaveTitle(detailPage.title);
     await expect(page.getByRole('heading', { name: detailPage.heading })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Related project links' })).toBeVisible();
+
+    for (const snippet of detailPage.snippets) {
+      await expect(page.getByText(snippet, { exact: false })).toBeVisible();
+    }
   });
 }
