@@ -362,22 +362,22 @@ window.PERSONAL_BRAND_DATA = {
       cards: [
         {
           title: 'BPMN & process maps',
-          body: 'Visual workflows that clarify ownership, handoffs, exceptions, and system behaviour.',
+          body: 'Visual workflows for the Job Hunter scoring and review pipeline, showing how jobs move from scrape to shortlist.',
           href: WORK_SAMPLE_URLS.bpmnProcessMaps,
         },
         {
           title: 'Business rules & decision logic',
-          body: 'Policy and operational logic translated into clear, testable system behaviour.',
+          body: 'Policy and scoring rules translated into clear, testable system behaviour.',
           href: WORK_SAMPLE_URLS.businessRulesDecisionLogic,
         },
         {
           title: 'Acceptance criteria & delivery stories',
-          body: 'Requirements structured so developers, testers, and stakeholders know what done means.',
+          body: 'Story slicing and acceptance criteria used to make delivery testable and reviewable.',
           href: WORK_SAMPLE_URLS.acceptanceCriteriaDelivery,
         },
         {
           title: 'AI product decision flows',
-          body: 'Agent and scoring flows from Job Hunter, KnowMe, and the coding orchestrator.',
+          body: 'Bounded approval and instruction flows from Job Hunter, KnowMe, and the coding orchestrator.',
           href: WORK_SAMPLE_URLS.aiProductDecisionFlows,
         },
       ],
@@ -388,18 +388,20 @@ window.PERSONAL_BRAND_DATA = {
         recruiterValue:
           'Shows how Rob converts messy operating steps into visual workflows that teams can implement and test.',
         context:
-          'When a process has handoffs, exceptions and unclear ownership, the risk is usually not just slow delivery. It is hidden behaviour that people rely on but nobody can describe cleanly. These artefacts turn that ambiguity into a shared process model.',
+          'The Job Hunter scoring process flow shows the path from job capture to normalisation, deterministic checks, taxonomy review, fit review, frozen score, display, and feedback. When a process has handoffs, exceptions and unclear ownership, the risk is hidden behaviour that people rely on but nobody can describe cleanly.',
         whatRobDid:
-          'I map the current and future state, identify decision points, capture exceptions, and align stakeholders on what actually happens versus what policy or documentation says should happen.',
-        diagramLabel: 'Example process map structure',
+          'I turned the scoring pipeline into a readable process map, identified the decision points, and kept the uncertain states visible instead of burying them in hidden logic.',
+        diagramLabel: 'Job Hunter scoring process',
         diagramSteps: [
-          { title: 'Trigger', body: 'What starts the process and who raises it.' },
-          { title: 'Validate', body: 'Checks, rules and information needed before work continues.' },
-          { title: 'Decide', body: 'Decision point with clear branching and exceptions.' },
-          { title: 'Deliver', body: 'System action, handoff or outcome the team can build.' },
+          { title: 'Capture', body: 'Scraper captures the job record.' },
+          { title: 'Normalise', body: 'Source fields are structured and preserved separately from free text.' },
+          { title: 'Pre-check', body: 'Deterministic checks run before review.' },
+          { title: 'Review', body: 'Taxonomy and fit review decide whether the job moves forward.' },
+          { title: 'Freeze', body: 'Score and explanation are stored for inspection.' },
+          { title: 'Feedback', body: 'User action becomes a learning signal without silent rule changes.' },
         ],
         whyItMattered:
-          'Clear process maps reduce rework, expose edge cases early, and give delivery teams something concrete to build against instead of relying on verbal explanations.',
+          'Clear process maps reduce rework, expose edge cases early, and give delivery teams something concrete to build against instead of relying on verbal explanations. It also gives recruiters a way to see the difference between a noisy search tool and an explainable shortlist engine.',
         relatedLinks: [
           { label: 'Job Intelligence Tool', href: 'https://jobhunter.robvoto.com', external: true },
           { label: 'Workflow Automation Prototype', href: '../index.html#work', external: false },
@@ -411,18 +413,19 @@ window.PERSONAL_BRAND_DATA = {
         recruiterValue:
           'Shows how Rob translates policy and operational rules into precise system behaviour that developers and testers can use.',
         context:
-          'Rules often live in policy documents, email threads and tribal knowledge. Without a single source of truth, teams build around guesswork and different people implement different interpretations.',
+          'Job Hunter separates hidden filtering from inspectable scoring. The rules spine includes hard blockers, taxonomy review, review state, grade bands, frozen score and display score so different people do not implement different interpretations.',
         whatRobDid:
-          'I extract decision logic, define conditions and exceptions, and write the rules in a form that supports implementation, testing and stakeholder sign-off.',
-        diagramLabel: 'Example decision logic structure',
+          'I wrote the rules as explicit gates and labels so business, data and technical teams could see why a job was kept, reviewed or rejected. That also makes it easier to test and tune the system without changing the meaning of the score.',
+        diagramLabel: 'Job Hunter rules spine',
         diagramSteps: [
-          { title: 'Input', body: 'The data or event entering the rule.' },
-          { title: 'Condition', body: 'The test that determines which path applies.' },
-          { title: 'Exception', body: 'Special case that changes the default path.' },
-          { title: 'Outcome', body: 'The rule result that the system must produce.' },
+          { title: 'Blockers', body: 'Cheap deterministic checks reject obvious mismatches first.' },
+          { title: 'Taxonomy', body: 'Title and occupation logic decides near, far, or uncertain.' },
+          { title: 'Review', body: 'Only usable jobs move into fit review or deterministic outcome.' },
+          { title: 'Band', body: 'Grade clamps the score into the correct band.' },
+          { title: 'Freeze', body: 'Score and explanation are stored separately from display ranking.' },
         ],
         whyItMattered:
-          'Decision logic written clearly reduces ambiguity, lowers defect risk and makes policy changes easier to implement without reinterpreting the same rule each time.',
+          'Decision logic written clearly reduces ambiguity, lowers defect risk and makes policy changes easier to implement without reinterpreting the same rule each time. It also keeps hidden penalties out of the system.',
         relatedLinks: [
           { label: 'Job Intelligence Tool', href: 'https://jobhunter.robvoto.com', external: true },
           { label: 'Applied AI', href: '../index.html#work', external: false },
@@ -434,20 +437,22 @@ window.PERSONAL_BRAND_DATA = {
         recruiterValue:
           'Shows how Rob structures requirements so developers, testers and stakeholders know exactly what done means.',
         context:
-          'Delivery slows down when requirements are too vague to test or too broad to build. Teams need stories that are small enough to implement and specific enough to validate.',
+          'KnowMe has a public UI and an admin surface. Job Hunter has onboarding, workspace and review flows. AI Tech Lead has request, approval and instruction boundaries. In all three cases, delivery slows down when requirements are too vague to test or too broad to build.',
         whatRobDid:
-          'I break work into stories, define acceptance criteria in clear language, and align the story detail with the workflow, data and edge cases the team needs to deliver.',
-        diagramLabel: 'Example story structure',
+          'I break work into stories, define acceptance criteria in clear language, and align the story detail with the workflow, data and edge cases the team needs to deliver. That gives dev, QA and stakeholders the same definition of done.',
+        diagramLabel: 'Story to release path',
         diagramSteps: [
-          { title: 'Story', body: 'A user or system need written in delivery language.' },
-          { title: 'Criteria', body: 'Testable acceptance rules that define success.' },
-          { title: 'Test', body: 'How QA and stakeholders confirm the outcome.' },
-          { title: 'Done', body: 'The release-ready result that can be signed off.' },
+          { title: 'Need', body: 'A requirement is captured in the right product language.' },
+          { title: 'Story', body: 'The work is sliced into a buildable delivery unit.' },
+          { title: 'Criteria', body: 'Acceptance criteria define the success conditions.' },
+          { title: 'Test', body: 'QA and stakeholders can verify the same outcome.' },
+          { title: 'Done', body: 'The release is signed off with no ambiguity.' },
         ],
         whyItMattered:
-          'Well-structured stories reduce confusion, speed up delivery and create a cleaner bridge between analysis and implementation.',
+          'Well-structured stories reduce confusion, speed up delivery and create a cleaner bridge between analysis and implementation. They also stop teams from treating analysis as separate from build.',
         relatedLinks: [
-          { label: 'KnowMe', href: '../index.html#work', external: false },
+          { label: 'KnowMe', href: KNOWME_URL, external: true },
+          { label: 'Job Intelligence Tool', href: JOB_HUNTER_URL, external: true },
           { label: 'AI Coding Orchestrator', href: '../index.html#work', external: false },
           { label: 'Back to BA Work Samples', href: WORK_SAMPLES_OVERVIEW_DETAIL_URL, external: false },
         ],
@@ -457,18 +462,21 @@ window.PERSONAL_BRAND_DATA = {
         recruiterValue:
           'Shows how Rob designs AI-assisted products with explicit gates, traceable decisions and safe handoffs.',
         context:
-          'AI tools fail fast when the product flow is implicit. If the model, user and system decisions are not separated, it becomes hard to trust the output or explain the behaviour.',
+          'AI Tech Lead is a local orchestrator that reads a request or backlog item, performs research gating, runs risk review and approval routing, builds a bounded instruction, and then hands off to the coding agent. If the model, user and system decisions are not separated, it becomes hard to trust the output or explain the behaviour.',
         whatRobDid:
-          'I map the input, scoring and approval steps, define what the assistant can decide versus what needs human review, and shape the flow so the product remains practical to use.',
-        diagramLabel: 'Example agent flow',
+          'I map the input, risk and approval steps, define what the assistant can decide versus what needs human review, and shape the flow so the product remains practical to use. The result keeps the orchestrator bounded instead of pretending the LLM can run the whole workflow.',
+        diagramLabel: 'Orchestrator decision flow',
         diagramSteps: [
-          { title: 'Input', body: 'Prompt, request or candidate record entering the flow.' },
-          { title: 'Score', body: 'Assessment or ranking using the available context.' },
-          { title: 'Gate', body: 'Approval, escalation or human review before action.' },
-          { title: 'Action', body: 'The system output, recommendation or task created.' },
+          { title: 'Request', body: 'Human request or backlog item enters the graph.' },
+          { title: 'Risk review', body: 'The orchestrator returns LOW, MEDIUM, HIGH or UNKNOWN.' },
+          { title: 'Approval', body: 'Unsafe work pauses for human approval.' },
+          { title: 'Plan', body: 'The agent asks for a compact implementation plan.' },
+          { title: 'Instruction', body: 'The instruction builder produces a bounded task brief.' },
+          { title: 'Run', body: 'The controlled coding-agent runner executes the work.' },
+          { title: 'Recover', body: 'Failures route back through guidance instead of silently continuing.' },
         ],
         whyItMattered:
-          'Explicit decision flows make AI products easier to explain, safer to operate and more credible for stakeholders who need to trust the outcome.',
+          'Explicit decision flows make AI products easier to explain, safer to operate and more credible for stakeholders who need to trust the outcome. They also make the orchestration logic usable as a portfolio case study rather than a black box.',
         relatedLinks: [
           { label: 'Job Intelligence Tool', href: JOB_HUNTER_URL, external: true },
           { label: 'KnowMe', href: KNOWME_URL, external: true },
