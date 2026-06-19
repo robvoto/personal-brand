@@ -41,6 +41,12 @@
       --action-font-size: 0.74rem;
       --action-font-weight: 500;
       --action-letter-spacing: 0.08em;
+      --pill-min-height: 2.05rem;
+      --pill-padding-y: 0.44rem;
+      --pill-padding-x: 0.75rem;
+      --pill-font-size: 0.65rem;
+      --pill-font-weight: 500;
+      --pill-letter-spacing: 0.08em;
       --hero-chip-font-size: 0.72rem;
       --hero-chip-font-weight: 500;
       --hero-chip-letter-spacing: 0.08em;
@@ -351,6 +357,9 @@
       grid-auto-rows: 1fr;
       align-items: stretch;
     }
+    .card-grid.work-sample-overview-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
     .card {
       background: var(--bg-elev);
       border: 1px solid var(--line);
@@ -368,6 +377,23 @@
     }
     .card.compact p {
       font-size: 0.96rem;
+    }
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.95rem;
+    }
+    .card-actions--wrap {
+      align-items: flex-start;
+    }
+    .action-pill {
+      min-height: var(--pill-min-height);
+      padding: var(--pill-padding-y) var(--pill-padding-x);
+      font-size: var(--pill-font-size);
+      font-weight: var(--pill-font-weight);
+      letter-spacing: var(--pill-letter-spacing);
+      box-shadow: 0 10px 20px rgba(47, 95, 79, 0.14);
     }
     .case-study-card {
       min-height: 15.75rem;
@@ -571,6 +597,13 @@
       box-shadow: 0 12px 24px rgba(47, 95, 79, 0.16);
       text-decoration: none;
     }
+    .card-actions .chip-link {
+      min-height: var(--pill-min-height);
+      padding: var(--pill-padding-y) var(--pill-padding-x);
+      font-size: var(--pill-font-size);
+      font-weight: var(--pill-font-weight);
+      letter-spacing: var(--pill-letter-spacing);
+    }
     button.chip-link {
       appearance: none;
       border: 1px solid rgba(47, 95, 79, 0.25);
@@ -585,6 +618,112 @@
     }
     a.credential-badge {
       text-decoration: none;
+    }
+
+    .work-sample-head {
+      margin-bottom: 1rem;
+    }
+    .work-sample-subtitle {
+      margin: 0.7rem 0 0;
+      max-width: 66ch;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+    .work-sample-intro {
+      margin-bottom: 1rem;
+    }
+    .work-sample-intro p {
+      margin: 0;
+      max-width: 72ch;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+    .work-sample-card {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .work-sample-card h3 {
+      min-height: 2.4rem;
+    }
+    .work-sample-card p {
+      flex: 1;
+    }
+    .work-sample-shell {
+      display: grid;
+      gap: 1rem;
+    }
+    .work-sample-hero h1 {
+      max-width: 12ch;
+      font-size: clamp(2.3rem, 4vw, 3.35rem);
+    }
+    .work-sample-kicker {
+      display: inline-flex;
+      margin-bottom: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .work-sample-value {
+      margin: 0.85rem 0 0;
+      max-width: 68ch;
+      font-size: 1.03rem;
+      color: var(--muted);
+    }
+    .work-sample-stack {
+      display: grid;
+      gap: 1rem;
+    }
+    .work-sample-section h2 {
+      margin-bottom: 0.6rem;
+      font-size: 1.22rem;
+    }
+    .work-sample-section p {
+      max-width: 76ch;
+    }
+    .work-sample-diagram {
+      display: grid;
+      gap: 0.8rem;
+    }
+    .work-sample-diagram-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .work-sample-diagram-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .work-sample-diagram-step {
+      min-height: 100%;
+      padding: 0.95rem;
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, #fcfaf2, #f6f1e4);
+      border: 1px solid var(--line);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+    .work-sample-step-index {
+      display: inline-flex;
+      margin-bottom: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .work-sample-diagram-step h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1rem;
+    }
+    .work-sample-diagram-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
     .skill {
@@ -877,6 +1016,12 @@
         grid-template-columns: 1fr;
       }
       .card-grid.applied-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-grid.work-sample-overview-grid {
+        grid-template-columns: 1fr;
+      }
+      .work-sample-diagram-grid {
         grid-template-columns: 1fr;
       }
       .applied-media {

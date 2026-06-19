@@ -13,13 +13,13 @@
   const renderTags = (tags) => tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join('');
   const renderBadges = (badges) =>
     badges.map((badge) => `<span class="credential-badge">${escapeHtml(badge)}</span>`).join('');
-  const renderLinks = (links) =>
-    links
-      .map(
-        (link) =>
-          `<a class="chip-link" href="${escapeHtml(link.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)}</a>`
-      )
-      .join('');
+  const renderLink = (link, className = 'chip-link action-pill') => {
+    const external = link.external ?? /^[a-z][a-z0-9+.-]*:/i.test(link.href);
+    const externalAttrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return `<a class="${className}" href="${escapeHtml(link.href)}"${externalAttrs}>${escapeHtml(link.label)}</a>`;
+  };
+  const renderLinks = (links, className = 'card-actions') =>
+    `<div class="${className}">${links.map((link) => renderLink(link)).join('')}</div>`;
 
   const renderBrand = (brand) => `<span>${escapeHtml(brand.first)} <span>${escapeHtml(brand.last)}</span></span>`;
   const renderNav = (links) => links.map((link) => `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`).join('');
@@ -53,6 +53,83 @@
         <a class="button primary" href="${escapeHtml(video.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(video.ctaLabel)}</a>
       </div>
     </div>
+  `;
+
+  const renderSectionIntro = (copy) => `
+    <div class="work-sample-intro">
+      <p>${escapeHtml(copy)}</p>
+    </div>
+  `;
+
+  const renderWorkSampleOverview = (overview) => `
+    ${renderSectionIntro(overview.subtitle)}
+    <div class="card-grid four work-sample-overview-grid">
+      ${overview.cards
+        .map(
+          (card) => `
+            <article class="card compact work-sample-card">
+              <h3>${escapeHtml(card.title)}</h3>
+              <p>${escapeHtml(card.body)}</p>
+              <div class="card-actions">
+                ${renderLink({ href: card.href, label: `Open ${card.title}` })}
+              </div>
+            </article>
+          `
+        )
+        .join('')}
+    </div>
+  `;
+
+  const renderWorkSampleDetail = (sample) => `
+    <article class="work-sample-shell">
+      <div class="card work-sample-hero">
+        <div class="work-sample-kicker">BA work sample</div>
+        <h1>${escapeHtml(sample.title)}</h1>
+        <p class="work-sample-value">${escapeHtml(sample.recruiterValue)}</p>
+      </div>
+
+      <div class="work-sample-stack">
+        <article class="card work-sample-section">
+          <h2>Context / problem</h2>
+          <p>${escapeHtml(sample.context)}</p>
+        </article>
+
+        <article class="card work-sample-section">
+          <h2>What Rob did</h2>
+          <p>${escapeHtml(sample.whatRobDid)}</p>
+        </article>
+
+        <article class="card work-sample-section">
+          <h2>Diagram area</h2>
+          <div class="work-sample-diagram" aria-label="${escapeHtml(sample.diagramLabel)}">
+            <div class="work-sample-diagram-label">${escapeHtml(sample.diagramLabel)}</div>
+            <div class="work-sample-diagram-grid">
+              ${sample.diagramSteps
+                .map(
+                  (step, index) => `
+                    <div class="work-sample-diagram-step">
+                      <span class="work-sample-step-index">${String(index + 1).padStart(2, '0')}</span>
+                      <h3>${escapeHtml(step.title)}</h3>
+                      <p>${escapeHtml(step.body)}</p>
+                    </div>
+                  `
+                )
+                .join('')}
+            </div>
+          </div>
+        </article>
+
+        <article class="card work-sample-section">
+          <h2>Why it mattered</h2>
+          <p>${escapeHtml(sample.whyItMattered)}</p>
+        </article>
+
+        <article class="card work-sample-section">
+          <h2>Related project links</h2>
+          ${renderLinks(sample.relatedLinks, 'card-actions card-actions--wrap')}
+        </article>
+      </div>
+    </article>
   `;
 
   const renderCapabilities = (cards) =>
@@ -109,7 +186,7 @@
               </div>
               <div class="applied-copy">
                 <p>${escapeHtml(card.body)}</p>
-                <div class="credential-badges">${renderLinks(card.links)}</div>
+                ${renderLinks(card.links, 'card-actions card-actions--wrap')}
               </div>
             </article>
           `;
@@ -119,9 +196,7 @@
           <article class="card compact">
             <h3>${escapeHtml(card.title)}</h3>
             <p>${escapeHtml(card.body)}</p>
-            <div class="credential-badges">
-              ${card.links ? renderLinks(card.links) : renderBadges(card.badges || [])}
-            </div>
+            ${card.links ? renderLinks(card.links, 'card-actions card-actions--wrap') : `<div class="credential-badges">${renderBadges(card.badges || [])}</div>`}
           </article>
         `;
       })
@@ -202,14 +277,51 @@
     </div>
   `;
 
+  const renderOverviewPage = (workSamples) => `
+    <div class="section-head work-sample-head">
+      <h1>${escapeHtml(workSamples.overview.title)}</h1>
+      <p class="work-sample-subtitle">${escapeHtml(workSamples.overview.subtitle)}</p>
+    </div>
+    ${renderWorkSampleOverview(workSamples.overview)}
+  `;
+
   const renderSection = (selector, html) => {
     const target = document.querySelector(selector);
     if (target) target.innerHTML = html;
   };
 
-  document.title = data.site.title;
-  const descriptionMeta = document.querySelector('meta[name="description"]');
-  if (descriptionMeta) descriptionMeta.setAttribute('content', data.site.description);
+  const setPageMeta = (title, description) => {
+    document.title = title;
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+    if (descriptionMeta) descriptionMeta.setAttribute('content', description);
+  };
+
+  const pageType = document.body.dataset.page || 'home';
+  const sampleSlug = document.body.dataset.sample;
+
+  setPageMeta(data.site.title, data.site.description);
+
+  if (pageType === 'work-sample-overview') {
+    const workSamples = data.workSamples;
+    setPageMeta(workSamples.overview.title, workSamples.overview.description);
+    renderSection('[data-render="brand"]', renderBrand(data.copy.brand));
+    renderSection('[data-render="nav"]', renderNav(workSamples.overviewNavigation));
+    renderSection('[data-render="work-sample-overview"]', renderOverviewPage(workSamples));
+    renderSection('[data-render="footer"]', renderFooter(data.copy.footer));
+    return;
+  }
+
+  if (pageType === 'work-sample-detail') {
+    const sample = data.workSamples.pages[sampleSlug];
+    if (sample) {
+      setPageMeta(`${sample.title} | Rob Voto`, sample.recruiterValue);
+      renderSection('[data-render="brand"]', renderBrand(data.copy.brand));
+      renderSection('[data-render="nav"]', renderNav(data.workSamples.detailNavigation));
+      renderSection('[data-render="work-sample-detail"]', renderWorkSampleDetail(sample));
+      renderSection('[data-render="footer"]', renderFooter(data.copy.footer));
+    }
+    return;
+  }
 
   renderSection('[data-render="skip-link"]', escapeHtml(data.copy.skipLink));
   renderSection('[data-render="brand"]', renderBrand(data.copy.brand));
@@ -221,6 +333,7 @@
   renderSection('[data-render="section-toolkit"]', renderSectionHead(data.copy.sections.toolkit));
   renderSection('[data-render="section-case-studies"]', renderSectionHead(data.copy.sections.caseStudies));
   renderSection('[data-render="section-applied-ai"]', renderSectionHead(data.copy.sections.appliedAi));
+  renderSection('[data-render="section-ba-work-samples"]', renderSectionHead(data.copy.sections.baWorkSamples));
   renderSection('[data-render="section-industries"]', renderSectionHead(data.copy.sections.industries));
   renderSection('[data-render="section-education"]', renderSectionHead(data.copy.sections.education));
   renderSection('[data-render="section-contact"]', renderSectionHead(data.copy.sections.contact));
@@ -228,6 +341,7 @@
   renderSection('[data-render="toolkit"]', renderToolkit(data.toolkit));
   renderSection('[data-render="case-studies"]', renderCaseStudies(data.caseStudies));
   renderSection('[data-render="applied-ai"]', renderAppliedAi(data.appliedAi));
+  renderSection('[data-render="ba-work-samples"]', renderWorkSampleOverview(data.workSamples.overview));
   renderSection('[data-render="industries"]', renderIndustries(data.industries));
   renderSection('[data-render="education-top"]', renderEducationTop(data.educationTop));
   renderSection('[data-render="education-bottom"]', renderEducationBottom(data.educationBottom));

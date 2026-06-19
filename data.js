@@ -1,5 +1,13 @@
 const KNOWME_URL = 'https://knowme.robvoto.com/';
 const JOB_HUNTER_URL = 'https://jobhunter.robvoto.com';
+const WORK_SAMPLES_OVERVIEW_DETAIL_URL = '../work-samples.html';
+const WORK_SAMPLES_PATH = 'work-samples/';
+const WORK_SAMPLE_URLS = {
+  acceptanceCriteriaDelivery: `${WORK_SAMPLES_PATH}acceptance-criteria-delivery.html`,
+  aiProductDecisionFlows: `${WORK_SAMPLES_PATH}ai-product-decision-flows.html`,
+  bpmnProcessMaps: `${WORK_SAMPLES_PATH}bpmn-process-maps.html`,
+  businessRulesDecisionLogic: `${WORK_SAMPLES_PATH}business-rules-decision-logic.html`,
+};
 
 window.PERSONAL_BRAND_DATA = {
   site: {
@@ -19,6 +27,7 @@ window.PERSONAL_BRAND_DATA = {
       { label: 'Toolkit', href: '#skills' },
       { label: 'Case studies', href: '#experience' },
       { label: 'Applied AI', href: '#work' },
+      { label: 'BA Work Samples', href: '#work-samples' },
       { label: 'Education', href: '#credentials' },
       { label: 'Contact', href: '#contact' },
     ],
@@ -36,6 +45,7 @@ window.PERSONAL_BRAND_DATA = {
       toolkit: 'Toolkit',
       caseStudies: 'Case studies',
       appliedAi: 'Applied AI',
+      baWorkSamples: 'BA Work Samples',
       industries: 'Industries',
       education: 'Education',
       contact: 'Contact',
@@ -268,6 +278,14 @@ window.PERSONAL_BRAND_DATA = {
           label: 'App',
           href: JOB_HUNTER_URL,
         },
+        {
+          label: 'Case study',
+          href: WORK_SAMPLE_URLS.acceptanceCriteriaDelivery,
+        },
+        {
+          label: 'Decision flows',
+          href: WORK_SAMPLE_URLS.aiProductDecisionFlows,
+        },
       ],
     },
     {
@@ -279,19 +297,187 @@ window.PERSONAL_BRAND_DATA = {
           label: 'App',
           href: KNOWME_URL,
         },
+        {
+          label: 'Case study',
+          href: WORK_SAMPLE_URLS.acceptanceCriteriaDelivery,
+        },
+        {
+          label: 'How it works',
+          href: WORK_SAMPLE_URLS.aiProductDecisionFlows,
+        },
       ],
     },
     {
       title: 'AI Coding Orchestrator',
       body: 'AI agent that manages coding agents: backlog planning, approval gates, task instructions, review, escalation and controlled delivery.',
-      badges: ['Agentic AI', 'Approval gates', 'Review loop'],
+      links: [
+        {
+          label: 'Case study',
+          href: WORK_SAMPLE_URLS.acceptanceCriteriaDelivery,
+        },
+        {
+          label: 'Architecture',
+          href: WORK_SAMPLE_URLS.aiProductDecisionFlows,
+        },
+        {
+          label: 'Agent flow',
+          href: WORK_SAMPLE_URLS.aiProductDecisionFlows,
+        },
+      ],
     },
     {
       title: 'Workflow Automation Prototype',
       body: 'Monday.com ticketing workflow with intake, routing, ownership, SLA tracking and escalation logic.',
-      badges: ['Monday.com', 'SLA tracking', 'Escalation'],
+      links: [
+        {
+          label: 'Case study',
+          href: WORK_SAMPLE_URLS.acceptanceCriteriaDelivery,
+        },
+        {
+          label: 'Workflow',
+          href: WORK_SAMPLE_URLS.bpmnProcessMaps,
+        },
+        {
+          label: 'Rules',
+          href: WORK_SAMPLE_URLS.businessRulesDecisionLogic,
+        },
+      ],
     },
   ],
+  workSamples: {
+    overviewNavigation: [
+      { label: 'Home', href: 'index.html#home' },
+      { label: 'Applied AI', href: 'index.html#work' },
+    ],
+    detailNavigation: [
+      { label: 'Home', href: '../index.html#home' },
+      { label: 'BA Work Samples', href: '../work-samples.html' },
+    ],
+    overview: {
+      title: 'BA Work Samples | Rob Voto',
+      description:
+        'Reusable business analysis artefacts from Rob Voto covering BPMN, business rules, acceptance criteria, decision flows and delivery stories.',
+      subtitle:
+        'BPMN, business rules, acceptance criteria, decision flows, and delivery artefacts that show how Rob turns ambiguity into buildable work.',
+      cards: [
+        {
+          title: 'BPMN & process maps',
+          body: 'Visual workflows that clarify ownership, handoffs, exceptions, and system behaviour.',
+          href: WORK_SAMPLE_URLS.bpmnProcessMaps,
+        },
+        {
+          title: 'Business rules & decision logic',
+          body: 'Policy and operational logic translated into clear, testable system behaviour.',
+          href: WORK_SAMPLE_URLS.businessRulesDecisionLogic,
+        },
+        {
+          title: 'Acceptance criteria & delivery stories',
+          body: 'Requirements structured so developers, testers, and stakeholders know what done means.',
+          href: WORK_SAMPLE_URLS.acceptanceCriteriaDelivery,
+        },
+        {
+          title: 'AI product decision flows',
+          body: 'Agent and scoring flows from Job Hunter, KnowMe, and the coding orchestrator.',
+          href: WORK_SAMPLE_URLS.aiProductDecisionFlows,
+        },
+      ],
+    },
+    pages: {
+      bpmnProcessMaps: {
+        title: 'BPMN & process maps',
+        recruiterValue:
+          'Shows how Rob converts messy operating steps into visual workflows that teams can implement and test.',
+        context:
+          'When a process has handoffs, exceptions and unclear ownership, the risk is usually not just slow delivery. It is hidden behaviour that people rely on but nobody can describe cleanly. These artefacts turn that ambiguity into a shared process model.',
+        whatRobDid:
+          'I map the current and future state, identify decision points, capture exceptions, and align stakeholders on what actually happens versus what policy or documentation says should happen.',
+        diagramLabel: 'Example process map structure',
+        diagramSteps: [
+          { title: 'Trigger', body: 'What starts the process and who raises it.' },
+          { title: 'Validate', body: 'Checks, rules and information needed before work continues.' },
+          { title: 'Decide', body: 'Decision point with clear branching and exceptions.' },
+          { title: 'Deliver', body: 'System action, handoff or outcome the team can build.' },
+        ],
+        whyItMattered:
+          'Clear process maps reduce rework, expose edge cases early, and give delivery teams something concrete to build against instead of relying on verbal explanations.',
+        relatedLinks: [
+          { label: 'Job Intelligence Tool', href: 'https://jobhunter.robvoto.com', external: true },
+          { label: 'Workflow Automation Prototype', href: '../index.html#work', external: false },
+          { label: 'Back to BA Work Samples', href: WORK_SAMPLES_OVERVIEW_DETAIL_URL, external: false },
+        ],
+      },
+      businessRulesDecisionLogic: {
+        title: 'Business rules & decision logic',
+        recruiterValue:
+          'Shows how Rob translates policy and operational rules into precise system behaviour that developers and testers can use.',
+        context:
+          'Rules often live in policy documents, email threads and tribal knowledge. Without a single source of truth, teams build around guesswork and different people implement different interpretations.',
+        whatRobDid:
+          'I extract decision logic, define conditions and exceptions, and write the rules in a form that supports implementation, testing and stakeholder sign-off.',
+        diagramLabel: 'Example decision logic structure',
+        diagramSteps: [
+          { title: 'Input', body: 'The data or event entering the rule.' },
+          { title: 'Condition', body: 'The test that determines which path applies.' },
+          { title: 'Exception', body: 'Special case that changes the default path.' },
+          { title: 'Outcome', body: 'The rule result that the system must produce.' },
+        ],
+        whyItMattered:
+          'Decision logic written clearly reduces ambiguity, lowers defect risk and makes policy changes easier to implement without reinterpreting the same rule each time.',
+        relatedLinks: [
+          { label: 'Job Intelligence Tool', href: 'https://jobhunter.robvoto.com', external: true },
+          { label: 'Applied AI', href: '../index.html#work', external: false },
+          { label: 'Back to BA Work Samples', href: WORK_SAMPLES_OVERVIEW_DETAIL_URL, external: false },
+        ],
+      },
+      acceptanceCriteriaDelivery: {
+        title: 'Acceptance criteria & delivery stories',
+        recruiterValue:
+          'Shows how Rob structures requirements so developers, testers and stakeholders know exactly what done means.',
+        context:
+          'Delivery slows down when requirements are too vague to test or too broad to build. Teams need stories that are small enough to implement and specific enough to validate.',
+        whatRobDid:
+          'I break work into stories, define acceptance criteria in clear language, and align the story detail with the workflow, data and edge cases the team needs to deliver.',
+        diagramLabel: 'Example story structure',
+        diagramSteps: [
+          { title: 'Story', body: 'A user or system need written in delivery language.' },
+          { title: 'Criteria', body: 'Testable acceptance rules that define success.' },
+          { title: 'Test', body: 'How QA and stakeholders confirm the outcome.' },
+          { title: 'Done', body: 'The release-ready result that can be signed off.' },
+        ],
+        whyItMattered:
+          'Well-structured stories reduce confusion, speed up delivery and create a cleaner bridge between analysis and implementation.',
+        relatedLinks: [
+          { label: 'KnowMe', href: '../index.html#work', external: false },
+          { label: 'AI Coding Orchestrator', href: '../index.html#work', external: false },
+          { label: 'Back to BA Work Samples', href: WORK_SAMPLES_OVERVIEW_DETAIL_URL, external: false },
+        ],
+      },
+      aiProductDecisionFlows: {
+        title: 'AI product decision flows',
+        recruiterValue:
+          'Shows how Rob designs AI-assisted products with explicit gates, traceable decisions and safe handoffs.',
+        context:
+          'AI tools fail fast when the product flow is implicit. If the model, user and system decisions are not separated, it becomes hard to trust the output or explain the behaviour.',
+        whatRobDid:
+          'I map the input, scoring and approval steps, define what the assistant can decide versus what needs human review, and shape the flow so the product remains practical to use.',
+        diagramLabel: 'Example agent flow',
+        diagramSteps: [
+          { title: 'Input', body: 'Prompt, request or candidate record entering the flow.' },
+          { title: 'Score', body: 'Assessment or ranking using the available context.' },
+          { title: 'Gate', body: 'Approval, escalation or human review before action.' },
+          { title: 'Action', body: 'The system output, recommendation or task created.' },
+        ],
+        whyItMattered:
+          'Explicit decision flows make AI products easier to explain, safer to operate and more credible for stakeholders who need to trust the outcome.',
+        relatedLinks: [
+          { label: 'Job Intelligence Tool', href: JOB_HUNTER_URL, external: true },
+          { label: 'KnowMe', href: KNOWME_URL, external: true },
+          { label: 'AI Coding Orchestrator', href: '../index.html#work', external: false },
+          { label: 'Back to BA Work Samples', href: WORK_SAMPLES_OVERVIEW_DETAIL_URL, external: false },
+        ],
+      },
+    },
+  },
   industries: [
     {
       title: 'Government / APS',

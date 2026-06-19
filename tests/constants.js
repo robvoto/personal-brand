@@ -1,10 +1,13 @@
 const path = require('path');
 
 const projectRoot = path.resolve(__dirname, '..');
+const workSamplesRoot = path.join(projectRoot, 'work-samples');
 
 module.exports = {
   projectRoot,
   indexHtmlPath: path.join(projectRoot, 'index.html'),
+  workSamplesOverviewPath: path.join(projectRoot, 'work-samples.html'),
+  workSamplesRoot,
   heroVideoAriaLabel: 'Watch 2-minute intro',
   introVideoUrl: 'https://drive.google.com/file/d/1OI1eU8K2CWpuZAVJ9ydqSrNtVD90ZgR5/view?usp=sharing',
   siteDescription:
