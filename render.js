@@ -109,14 +109,16 @@
           <h2>Diagram area</h2>
           <div class="work-sample-diagram" aria-label="${escapeHtml(sample.diagramLabel)}">
             <div class="work-sample-diagram-label">${escapeHtml(sample.diagramLabel)}</div>
-            <div class="work-sample-diagram-grid">
+            <div class="work-sample-diagram-flow">
               ${sample.diagramSteps
                 .map(
                   (step, index) => `
                     <div class="work-sample-diagram-step">
                       <span class="work-sample-step-index">${String(index + 1).padStart(2, '0')}</span>
-                      <h3>${escapeHtml(step.title)}</h3>
-                      <p>${escapeHtml(step.body)}</p>
+                      <div class="work-sample-diagram-copy">
+                        <h3>${escapeHtml(step.title)}</h3>
+                        <p>${escapeHtml(step.body)}</p>
+                      </div>
                     </div>
                   `
                 )

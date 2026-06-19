@@ -11,8 +11,8 @@ const detailPages = [
     heading: 'BPMN & process maps',
     snippets: [
       'Job Hunter scoring process flow',
-      'Scraper captures the job record.',
-      'Clear process maps reduce rework',
+      'Scraper captures the raw job record and keeps structured metadata separate from the description.',
+      'Save, skip and apply actions feed learning',
     ],
   },
   {
@@ -42,7 +42,7 @@ const detailPages = [
     snippets: [
       'AI Tech Lead is a local orchestrator',
       'Orchestrator decision flow',
-      'controlled coding-agent runner',
+      'Complex tasks can be gated for research approval before execution continues.',
     ],
   },
 ];

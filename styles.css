@@ -701,14 +701,16 @@
       text-transform: uppercase;
       color: var(--accent);
     }
-    .work-sample-diagram-grid {
+    .work-sample-diagram-flow {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 0.75rem;
     }
     .work-sample-diagram-step {
-      min-height: 100%;
-      padding: 0.95rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      padding: 0.95rem 1rem;
       border-radius: var(--radius-md);
       background: linear-gradient(180deg, #fcfaf2, #f6f1e4);
       border: 1px solid var(--line);
@@ -716,12 +718,23 @@
     }
     .work-sample-step-index {
       display: inline-flex;
-      margin-bottom: 0.5rem;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      margin-top: 0.05rem;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #3b6d5c);
+      color: var(--text-dark);
       font-family: var(--mono);
       font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
+      box-shadow: 0 10px 20px rgba(47, 95, 79, 0.14);
+    }
+    .work-sample-diagram-copy {
+      min-width: 0;
     }
     .work-sample-diagram-step h3 {
       margin-bottom: 0.45rem;
@@ -1026,9 +1039,6 @@
         grid-template-columns: 1fr;
       }
       .card-grid.work-sample-overview-grid {
-        grid-template-columns: 1fr;
-      }
-      .work-sample-diagram-grid {
         grid-template-columns: 1fr;
       }
       .applied-media {
