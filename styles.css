@@ -690,6 +690,63 @@
     .work-sample-section p {
       max-width: 76ch;
     }
+    .work-sample-bullets {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.55rem;
+    }
+    .work-sample-bullets li {
+      padding-left: 0.15rem;
+    }
+    .work-sample-process-strip {
+      display: grid;
+      gap: 0.65rem;
+    }
+    .work-sample-process-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      padding: 0.85rem 0.95rem;
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, #fcfaf2, #f7f1e4);
+      border: 1px solid var(--line);
+    }
+    .work-sample-process-step span:last-child {
+      color: var(--text);
+      font-size: 0.98rem;
+      line-height: 1.45;
+    }
+    .work-sample-example {
+      display: grid;
+      gap: 0.9rem;
+    }
+    .work-sample-example-block {
+      padding: 0.95rem 1rem;
+      border-radius: var(--radius-md);
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+    }
+    .work-sample-example-label {
+      display: inline-flex;
+      margin-bottom: 0.55rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .work-sample-example p {
+      margin: 0;
+      color: var(--text);
+      max-width: 72ch;
+    }
+    .work-sample-takeaway {
+      font-weight: 600;
+      color: var(--text);
+    }
     .work-sample-diagram {
       display: grid;
       gap: 0.8rem;
@@ -1039,6 +1096,9 @@
         grid-template-columns: 1fr;
       }
       .card-grid.work-sample-overview-grid {
+        grid-template-columns: 1fr;
+      }
+      .work-sample-process-step {
         grid-template-columns: 1fr;
       }
       .applied-media {

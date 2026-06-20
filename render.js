@@ -67,6 +67,27 @@
     </div>
   `;
 
+  const renderBullets = (items) => `
+    <ul class="work-sample-bullets">
+      ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+    </ul>
+  `;
+
+  const renderProcessStrip = (steps) => `
+    <div class="work-sample-process-strip">
+      ${steps
+        .map(
+          (step, index) => `
+            <div class="work-sample-process-step">
+              <span class="work-sample-step-index">${String(index + 1).padStart(2, '0')}</span>
+              <span>${escapeHtml(step)}</span>
+            </div>
+          `
+        )
+        .join('')}
+    </div>
+  `;
+
   const renderWorkSampleOverview = (overview) => `
     ${renderSectionIntro(overview.subtitle)}
     <div class="card-grid four work-sample-overview-grid">
@@ -87,6 +108,64 @@
   `;
 
   const renderWorkSampleDetail = (sample) => `
+    ${
+      sample.layout === 'acceptance-case-study'
+        ? `
+          <article class="work-sample-shell">
+            <div class="card work-sample-hero">
+              <div class="work-sample-kicker">BA work sample</div>
+              <h1>${escapeHtml(sample.title)}</h1>
+              <p class="work-sample-value">${escapeHtml(sample.recruiterValue)}</p>
+            </div>
+
+            <div class="work-sample-stack">
+              <article class="card work-sample-section">
+                <h2>Problem</h2>
+                <p>${escapeHtml(sample.problem)}</p>
+              </article>
+
+              <article class="card work-sample-section">
+                <h2>Rob&apos;s role</h2>
+                <p>${escapeHtml(sample.role)}</p>
+              </article>
+
+              <article class="card work-sample-section">
+                <h2>${escapeHtml(sample.deliveryMethodLabel)}</h2>
+                ${renderProcessStrip(sample.deliveryMethodSteps)}
+              </article>
+
+              <article class="card work-sample-section">
+                <h2>${escapeHtml(sample.exampleLabel)}</h2>
+                <div class="work-sample-example">
+                  <div class="work-sample-example-block">
+                    <span class="work-sample-example-label">Story</span>
+                    <p>${escapeHtml(sample.exampleStory)}</p>
+                  </div>
+                  <div class="work-sample-example-block">
+                    <span class="work-sample-example-label">Acceptance criteria</span>
+                    ${renderBullets(sample.exampleCriteria)}
+                  </div>
+                </div>
+              </article>
+
+              <article class="card work-sample-section">
+                <h2>${escapeHtml(sample.businessValueLabel)}</h2>
+                ${renderBullets(sample.businessValuePoints)}
+              </article>
+
+              <article class="card work-sample-section">
+                <h2>${escapeHtml(sample.takeawayLabel)}</h2>
+                <p class="work-sample-takeaway">${escapeHtml(sample.takeaway)}</p>
+              </article>
+
+              <article class="card work-sample-section">
+                <h2>Related project links</h2>
+                ${renderLinks(sample.relatedLinks, 'card-actions card-actions--wrap')}
+              </article>
+            </div>
+          </article>
+        `
+        : `
     <article class="work-sample-shell">
       <div class="card work-sample-hero">
         <div class="work-sample-kicker">BA work sample</div>
@@ -138,6 +217,8 @@
         </article>
       </div>
     </article>
+        `
+    }
   `;
 
   const renderCapabilities = (cards) =>

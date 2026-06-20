@@ -438,23 +438,48 @@ window.PERSONAL_BRAND_DATA = {
         ],
       },
       acceptanceCriteriaDelivery: {
-        title: 'Acceptance criteria & delivery stories',
+        title: 'Acceptance Criteria Delivery - Turning Ambiguous Policy Into Testable Stories',
+        layout: 'acceptance-case-study',
         recruiterValue:
-          'Shows how Rob structures requirements so developers, testers and stakeholders know exactly what done means.',
+          'Shows how Rob turns ambiguous policy into stories, rules and acceptance criteria that developers and testers can actually build against.',
         context:
           'KnowMe has a public UI and an admin surface. Job Hunter has onboarding, workspace and review flows. AI Tech Lead has request, approval and instruction boundaries. In all three cases, delivery slows down when requirements are too vague to test or too broad to build.',
-        whatRobDid:
-          'I break work into stories, define acceptance criteria in clear language, and align the story detail with the workflow, data and edge cases the team needs to deliver. That gives dev, QA and stakeholders the same definition of done.',
-        diagramLabel: 'Story to release path',
-        diagramSteps: [
-          { title: 'Need', body: 'A requirement is captured in the right product language.' },
-          { title: 'Story', body: 'The work is sliced into a buildable delivery unit.' },
-          { title: 'Criteria', body: 'Acceptance criteria define the success conditions.' },
-          { title: 'Test', body: 'QA and stakeholders can verify the same outcome using the same wording.' },
-          { title: 'Done', body: 'The release is signed off with no ambiguity.' },
+        problem:
+          'Business requests, policy updates and stakeholder asks often arrive as loose intent. If the team starts building before there is agreement on the outcome, the result is rework, testing gaps and sign-off friction.',
+        role:
+          'Rob converts that ambiguity into build-ready stories, acceptance criteria, business rules, edge cases, examples, QA scenarios and wording that supports release sign-off.',
+        deliveryMethodLabel: 'Delivery method',
+        deliveryMethodSteps: [
+          'Clarify the outcome',
+          'Identify the user, trigger and result',
+          'Slice the story',
+          'Write GIVEN / WHEN / THEN',
+          'Add edge cases and examples',
+          'Align with QA and stakeholders',
+          'Support release sign-off',
+        ],
+        exampleLabel: 'Example output',
+        exampleStory:
+          'As an operations user, I need the system to assess payment eligibility consistently so that valid outcomes are paid and invalid outcomes are excluded.',
+        exampleCriteria: [
+          'GIVEN a participant has met the required outcome period, WHEN the system evaluates payment eligibility, THEN the payment outcome must be marked payable only if all mandatory conditions are satisfied.',
+          'GIVEN mandatory evidence is missing, WHEN eligibility is assessed, THEN the payment must not proceed and the reason must be visible for review.',
+          'GIVEN the result is payable, WHEN QA checks the release, THEN the same conditions, examples and reason codes must be visible in the story and the test case.',
+        ],
+        businessValueLabel: 'Business value',
+        businessValuePoints: [
+          'Reduces ambiguity',
+          'Improves developer handover',
+          'Gives testers clear expected outcomes',
+          'Reduces rework',
+          'Improves stakeholder sign-off',
+          'Creates traceability from requirement to release',
         ],
         whyItMattered:
           'Well-structured stories reduce confusion, speed up delivery and create a cleaner bridge between analysis and implementation. They also stop teams from treating analysis as separate from build.',
+        takeawayLabel: 'Recruiter takeaway',
+        takeaway:
+          'This shows Rob is not just writing tickets. He is reducing delivery risk by making unclear business intent testable.',
         relatedLinks: [
           { label: 'KnowMe', href: KNOWME_URL, external: true },
           { label: 'Job Intelligence Tool', href: JOB_HUNTER_URL, external: true },

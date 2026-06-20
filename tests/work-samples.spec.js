@@ -27,12 +27,13 @@ const detailPages = [
   },
   {
     file: 'acceptance-criteria-delivery.html',
-    title: 'Acceptance criteria & delivery stories | Rob Voto',
-    heading: 'Acceptance criteria & delivery stories',
+    title: 'Acceptance Criteria Delivery - Turning Ambiguous Policy Into Testable Stories | Rob Voto',
+    heading: 'Acceptance Criteria Delivery - Turning Ambiguous Policy Into Testable Stories',
     snippets: [
-      'KnowMe has a public UI and an admin surface',
-      'Story to release path',
-      'same definition of done',
+      'Business requests, policy updates and stakeholder asks often arrive as loose intent.',
+      'Rob converts that ambiguity into build-ready stories',
+      'GIVEN a participant has met the required outcome period',
+      'This shows Rob is not just writing tickets.',
     ],
   },
   {
