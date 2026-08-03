@@ -1,70 +1,77 @@
-# Personal Brand Site
+# Rob Voto — Technical Business Analysis and Applied AI
 
-Static personal portfolio site for Rob Voto.
+Source repository for [robvoto.com](https://robvoto.com), a professional portfolio covering technical business analysis, delivery leadership, enterprise transformation, and practical AI products.
 
-Public site:
+## Purpose
 
-- `https://robvoto.com`
-- GitHub Pages source repo: `robvoto/personal-brand`
+The site gives recruiters, hiring managers, and delivery leaders a concise view of:
 
-## What this project is
+- technical business analysis and delivery capabilities;
+- selected enterprise case studies;
+- tools, methods, and industry experience;
+- applied AI projects, including KnowMe and Job Hunter;
+- contact details and a short introduction video.
 
-This is a static HTML/CSS/JavaScript site. It does not have a backend, database, or server-side admin area.
+## Live site
 
-Main files:
+**[Visit robvoto.com](https://robvoto.com)**
 
-- `index.html` - page structure
-- `data.js` - editable portfolio content, links, project cards, video link, credentials, and case-study content
-- `render.js` - renders content from `data.js` into the page
-- `script.js` - page interaction behaviour
-- `styles.css` - visual styling
-- `.github/workflows/static.yml` - GitHub Pages deployment workflow
-- `tests/` - Playwright regression tests
+## Project status
+
+Active and maintained. The site is deployed through GitHub Pages.
+
+## Technology
+
+- Semantic HTML
+- CSS
+- Vanilla JavaScript
+- Data-driven content rendering
+- Playwright regression tests
+- GitHub Actions deployment
+
+The project intentionally has no application backend or database. Portfolio content is maintained in `data.js` and rendered by `render.js`.
+
+## Repository structure
+
+```text
+.
+├── index.html                  # Page structure
+├── data.js                     # Portfolio content and links
+├── render.js                   # Data-to-page rendering
+├── script.js                   # Interactive behaviour
+├── styles.css                  # Site styling
+├── tests/                      # Playwright regression tests
+├── docs/MAINTENANCE.md         # Maintainer instructions
+└── .github/workflows/static.yml
+```
 
 ## Run locally
 
-From this folder:
-
-```powershell
-cd E:\Programming\personal-brand
+```bash
 python -m http.server 8001
 ```
 
-Then open:
-
-```text
-http://127.0.0.1:8001/
-```
-
-Alternative if Python is not available:
-
-```powershell
-npx serve .
-```
-
-## Install test dependencies
-
-```powershell
-cd E:\Programming\personal-brand
-npm install
-```
+Open `http://127.0.0.1:8001/`.
 
 ## Run tests
 
-```powershell
+```bash
+npm install
 npm test
 ```
 
-The Playwright tests verify that key sections render and that the 2-minute intro shows a preview card while still linking to the Google Drive share URL.
+The Playwright suite checks that key portfolio sections render and that important external links remain usable.
 
-## Edit content
+## Design decisions
 
-Most content should be changed in `data.js`. Do not hardcode content in `render.js` unless it is layout/rendering logic.
+- Content is separated from rendering logic so updates do not require rewriting page components.
+- The site uses a lightweight static architecture to minimise maintenance and hosting complexity.
+- Case studies focus on delivery context, actions, and outcomes rather than unsupported marketing claims.
 
-Common edits:
+## Maintenance
 
-- Intro video URL: `data.heroVideo.href`
-- KnowMe link: project card/link data in `data.js`
-- Job Hunter demo link: project card/link data in `data.js`
+See [`docs/MAINTENANCE.md`](docs/MAINTENANCE.md) for content locations, local commands, and release checks.
 
-See `NOTES.md` for implementation decisions and constraints.
+## Licence
+
+This project is currently licensed under the GNU General Public License v3.0. See [`LICENSE`](LICENSE).
