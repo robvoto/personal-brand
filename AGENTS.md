@@ -16,3 +16,8 @@ Static portfolio site. Read these before writing any code:
 - Public domain is robvoto.com.
 - No unused code.
 - No legacy code or links.
+
+## Repository text format
+
+- All tracked text files use LF line endings. `.gitattributes` and `.editorconfig` are authoritative; do not introduce or preserve CRLF.
+- Before finishing edits, run `git diff --check`. If a touched tracked text file is CRLF or mixed, normalize that touched file to LF without rewriting unrelated dirty work.
