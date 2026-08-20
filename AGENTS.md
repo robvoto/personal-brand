@@ -6,6 +6,7 @@ Static portfolio site. Read these before writing any code:
 - `NOTES.md` — implementation decisions and project-specific constraints
 - `DEPLOYMENT.md` — DNS and deployment notes
 - `tests/` — Playwright regression tests; all must stay green
+- `.skills/git-lifecycle/SKILL.md` — mandatory for branch/worktree, commit, push, PR, merge, and `main` integration
 
 ## Principles
 
