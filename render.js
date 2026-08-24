@@ -192,7 +192,14 @@
 
   const renderFooter = (footer) => `
     <div>${escapeHtml(footer.left)}</div>
-    <div>${escapeHtml(footer.right)}</div>
+    <div class="footer-meta">
+      <span>${escapeHtml(footer.right)}</span>
+      <span class="footer-links">
+        ${(footer.links || [])
+          .map((link) => `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`)
+          .join('<span aria-hidden="true">·</span>')}
+      </span>
+    </div>
   `;
 
   const renderSection = (selector, html) => {

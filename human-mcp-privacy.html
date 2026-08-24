@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy policy for Rob Voto's personal Human MCP integration.">
+  <meta name="theme-color" content="#0b0d12">
+  <title>Human MCP Privacy | Rob Voto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="legal-page">
+    <a href="index.html">← Back to robvoto.com</a>
+    <section class="card">
+      <h1>Human MCP Privacy Policy</h1>
+      <p><strong>Last updated:</strong> 24 August 2026</p>
+      <p>Human MCP is a personal local integration operated by Rob Voto. It lets authorised AI tools access approved local resources and, when explicitly requested, read information from Rob's Gmail account.</p>
+
+      <h2>Google data accessed</h2>
+      <p>Human MCP requests the Google OAuth scope <code>https://www.googleapis.com/auth/gmail.readonly</code>. This permits read-only access to Gmail messages, threads, headers, body text and attachment metadata needed for user-requested searches and summaries.</p>
+      <p>Human MCP does not use Gmail permission to send messages, create drafts, delete mail, change labels or otherwise modify mailbox state.</p>
+
+      <h2>How Google user data is used</h2>
+      <p>Google user data is accessed only when Rob asks an authorised AI client to perform a task that requires Gmail information, such as finding an email, checking a date or summarising correspondence. The requested content may pass through the MCP connection to that authorised AI service so it can answer the request.</p>
+      <p>Human MCP does not sell Google user data, use it for advertising, or maintain a separate cloud copy of the mailbox.</p>
+
+      <h2>Storage and security</h2>
+      <p>Google OAuth client credentials and refresh tokens used by Human MCP are stored locally on Rob's computer and are excluded from source control. Human MCP is designed for Rob's personal use and is not offered as a public multi-user Gmail service.</p>
+
+      <h2>Sharing</h2>
+      <p>Human MCP does not independently share Gmail data with third parties. Data is provided only to the authorised AI client involved in the user-requested task and subject to that service's applicable privacy terms.</p>
+
+      <h2>Revoking access</h2>
+      <p>Rob can revoke Human MCP's Google access at any time through Google Account security settings or by deleting the locally stored OAuth token.</p>
+
+      <h2>Google API Limited Use</h2>
+      <p>Human MCP's use and transfer of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this integration can be sent to <a href="mailto:contact@robvoto.com">contact@robvoto.com</a>.</p>
+    </section>
+  </main>
+  <footer>
+    <div>Rob Voto - Sydney, Australia</div>
+    <div class="footer-links"><a href="human-mcp-terms.html">Human MCP Terms</a><span aria-hidden="true">·</span><a href="index.html">Home</a></div>
+  </footer>
+</body>
+</html>

@@ -53,6 +53,10 @@ window.PERSONAL_BRAND_DATA = {
     footer: {
       left: 'Rob Voto - Sydney, Australia',
       right: 'Technical BA + AI tools',
+      links: [
+        { label: 'Human MCP Privacy', href: 'human-mcp-privacy.html' },
+        { label: 'Human MCP Terms', href: 'human-mcp-terms.html' },
+      ],
     },
   },
   heroVideo: {
@@ -239,6 +243,14 @@ window.PERSONAL_BRAND_DATA = {
     },
   ],
   appliedAi: [
+    {
+      title: 'Human MCP',
+      body: 'Personal local MCP bridge that gives authorised AI tools controlled read-only access to my Gmail and approved local files. Gmail access uses the minimum read-only scope and cannot send, delete, label or modify mail.',
+      links: [
+        { label: 'Privacy', href: 'human-mcp-privacy.html' },
+        { label: 'Terms', href: 'human-mcp-terms.html' },
+      ],
+    },
     {
       featured: true,
       title: 'Job Intelligence Tool',
