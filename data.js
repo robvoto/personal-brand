@@ -407,7 +407,7 @@ window.PERSONAL_BRAND_DATA = {
         whyItMattered:
           'Clear process maps reduce rework, expose edge cases early, and give delivery teams something concrete to build against instead of relying on verbal explanations. It also gives recruiters a way to see the difference between a noisy search tool and an explainable shortlist engine.',
         relatedLinks: [
-          { label: 'Job Intelligence Tool', href: 'https://jobhunter.robvoto.com', external: true },
+          { label: 'Job Intelligence Tool', href: JOB_HUNTER_URL, external: true },
           { label: 'Workflow Automation Prototype', href: '../index.html#work', external: false },
           { label: 'Back to BA Work Samples', href: WORK_SAMPLES_OVERVIEW_DETAIL_URL, external: false },
         ],
@@ -432,7 +432,7 @@ window.PERSONAL_BRAND_DATA = {
         whyItMattered:
           'Decision logic written clearly reduces ambiguity, lowers defect risk and makes policy changes easier to implement without reinterpreting the same rule each time. It also keeps hidden penalties out of the system.',
         relatedLinks: [
-          { label: 'Job Intelligence Tool', href: 'https://jobhunter.robvoto.com', external: true },
+          { label: 'Job Intelligence Tool', href: JOB_HUNTER_URL, external: true },
           { label: 'Applied AI', href: '../index.html#work', external: false },
           { label: 'Back to BA Work Samples', href: WORK_SAMPLES_OVERVIEW_DETAIL_URL, external: false },
         ],
