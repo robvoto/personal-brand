@@ -63,10 +63,10 @@ test('homepage shows BA work sample actions', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'View all work samples' })).toHaveAttribute('href', 'work-samples.html');
 
   const jobsCard = page.locator('article').filter({ has: page.getByRole('heading', { name: 'Job Intelligence Tool' }) });
-  await assertActionLabels(jobsCard, ['Demo', 'App', 'Case study', 'Decision flows']);
+  await assertActionLabels(jobsCard, ['Demo', 'Project overview', 'Case study', 'Decision flows']);
 
   const knowMeCard = page.locator('article').filter({ has: page.getByRole('heading', { name: 'knowMe' }) });
-  await assertActionLabels(knowMeCard, ['App', 'Case study', 'How it works']);
+  await assertActionLabels(knowMeCard, ['Project overview', 'Case study', 'How it works']);
 
   const orchestratorCard = page.locator('article').filter({ has: page.getByRole('heading', { name: 'AI Coding Orchestrator' }) });
   await assertActionLabels(orchestratorCard, ['Case study', 'Architecture', 'Agent flow']);
