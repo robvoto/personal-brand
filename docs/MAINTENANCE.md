@@ -76,3 +76,7 @@ Verified after production deployment: the live HTML returned HTTP 200 and contai
 ## Restricted GitHub Pages publishing (19 October 2026)
 
 The GitHub Pages workflow previously uploaded the entire repository root to the public site. The workflow now validates with `npm ci`, Chromium Playwright and `npm test`, stages only the required static website files, checks for the retired AWS hostnames in publishable JS/HTML, and uploads only the `public/` staging folder. Changes to new public assets must update the staging allowlist explicitly. This reduces accidental publishing of internal development files and prevents failed browser tests from deploying. The repository itself remains public; staging is not a secrecy control for committed content.
+
+## CSP coverage extension (19 October 2026)
+
+The homepage CSP was extended to the two public Human MCP legal pages, the BA work-samples index, and all four published work-sample detail pages. The pages use the same HTML meta CSP as `index.html` and the existing same-origin scripts/styles and Google Fonts allowances. When adding a new public HTML page, copy and review the CSP, because GitHub Pages does not automatically apply it to every page. Browser regression and live deployment validation remain necessary after changing the policy.
