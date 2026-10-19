@@ -41,7 +41,8 @@ jobs:
       - name: Stage public website only
         run: |
           mkdir -p public
-          cp index.html data.js render.js script.js styles.css CNAME public/
+          cp index.html work-samples.html data.js render.js script.js styles.css CNAME public/
+          cp -R work-samples public/
           cp human-mcp-privacy.html human-mcp-terms.html public/
           cp *.png *.jpg public/
           if grep -R -E 'https://(knowme|jobhunter)\\.robvoto\\.com' public --include='*.js' --include='*.html'; then
