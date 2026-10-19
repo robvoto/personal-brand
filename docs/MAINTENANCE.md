@@ -66,3 +66,9 @@ Evidence: Gmail message dated 19 October 2026, subject “Responsible Disclosure
 ## GitHub Pages domain ownership (19 October 2026)
 
 The GitHub account `robvoto` previously showed no verified domains. On 19 October 2026, `robvoto.com` ownership was verified through GitHub Settings → Pages using the DNS TXT challenge `_github-pages-challenge-robvoto.robvoto.com` added in Porkbun. The TXT was independently resolved against authoritative server `maceio.ns.porkbun.com`, and GitHub displayed **Successfully verified robvoto.com** and **robvoto.com Verified**. Keep the verification TXT record in DNS; removing it may compromise continued verification. This is distinct from the separate site custom-domain configuration and HTTPS checks.
+
+## Website Content Security Policy (19 October 2026)
+
+The GitHub Pages site uses a CSP declared with an HTML `<meta http-equiv="Content-Security-Policy">` in `index.html`, introduced by PR #2 (merged commit `a07a58f`). This limits scripts to same-origin files, styles to same-origin files and Google Fonts CSS, font files to Google Fonts, images to same-origin and data URLs, and disables embedded frames and objects. The meta delivery approach does **not** support all CSP directives (notably `frame-ancestors` and reporting-only); it is not equivalent to a server-delivered CSP response header.
+
+Verified after production deployment: the live HTML returned HTTP 200 and contained the CSP, and the Windows Chrome rendered the portfolio content and navigation. This confirms basic operation, not exhaustive browser-console or regression testing. Reassess the CSP when adding external videos, new widgets, network APIs or third-party scripts; test those changes before release. Separately noted: the site's content still links to retired `knowme.robvoto.com` and `jobhunter.robvoto.com`; update those project destinations once replacements are decided rather than restoring dangling DNS.
