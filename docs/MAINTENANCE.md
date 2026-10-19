@@ -54,3 +54,11 @@ Run the Playwright suite after changing navigation, section identifiers, project
 ## Deployment
 
 GitHub Pages deployment is defined in `.github/workflows/static.yml`. Changes merged to the configured deployment branch are published through that workflow.
+
+## Security incident — retired Job Hunter DNS (19 October 2026)
+
+A responsible-disclosure email reported that `jobhunter.robvoto.com` resolved to `32.236.144.98`, a retired AWS endpoint. Before remediation, Windows `nslookup` reproduced that A record. On 19 October 2026, the specific `jobhunter.robvoto.com` A record was removed in Porkbun DNS management for `robvoto.com`. The Porkbun record list decreased from 12 to 11 and no longer contained the Job Hunter record. A direct query to authoritative server `maceio.ns.porkbun.com` then returned **Non-existent domain** for `jobhunter.robvoto.com`.
+
+This closes the *dangling DNS configuration* identified in the report; it does not establish whether the reporter actually took control, whether visitors were affected, or whether all cached DNS responses have expired. The reporter's CVSS 8.2 rating was not independently validated. No payment was made or promised. Do not recreate this DNS record until it targets a verified active, controlled service. The separately configured `knowme.robvoto.com` A record still pointed to the same IP when inspected and **was not modified**; review it separately before AWS retirement is considered fully safe.
+
+Evidence: Gmail message dated 19 October 2026, subject “Responsible Disclosure of a Subdomain Takeover issue on: jobhunter.robvoto.com” from `omri@galaxysec.co.uk`; observed Porkbun record list and authoritative DNS check on Windows.
