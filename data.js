@@ -1,5 +1,5 @@
-const KNOWME_URL = 'https://knowme.robvoto.com/';
-const JOB_HUNTER_URL = 'https://jobhunter.robvoto.com';
+const KNOWME_URL = 'https://robvoto.com/#work';
+const JOB_HUNTER_URL = 'https://robvoto.com/#work';
 const WORK_SAMPLES_OVERVIEW_DETAIL_URL = '../work-samples.html';
 const WORK_SAMPLES_PATH = 'work-samples/';
 const WORK_SAMPLE_URLS = {
@@ -37,7 +37,7 @@ window.PERSONAL_BRAND_DATA = {
       copy:
         'I connect high-level business intent with system detail: rules, workflows, data flows, APIs, acceptance criteria and delivery artefacts. I also build AI tools, so the technical side is practical, not theoretical.',
       chip: '20+ years enterprise delivery',
-      ctaLabel: 'Ask AI About Rob',
+      ctaLabel: 'Explore AI Projects',
       ctaHref: KNOWME_URL,
     },
     sections: {
@@ -276,7 +276,7 @@ window.PERSONAL_BRAND_DATA = {
           href: 'https://drive.google.com/file/d/1X5fwEAcQ3bDygtQ6dC_Wuu5c_a4gxJQQ/view?usp=sharing',
         },
         {
-          label: 'App',
+          label: 'Project overview',
           href: JOB_HUNTER_URL,
         },
         {
@@ -292,10 +292,10 @@ window.PERSONAL_BRAND_DATA = {
     {
       title: 'knowMe',
       featuredAligned: true,
-      body: 'Live LLM assistant for asking evidence-based questions about my experience.',
+      body: 'LLM assistant project for asking evidence-based questions about my experience. Live service is currently retired.',
       links: [
         {
-          label: 'App',
+          label: 'Project overview',
           href: KNOWME_URL,
         },
         {
